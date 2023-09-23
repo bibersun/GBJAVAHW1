@@ -1,7 +1,7 @@
 
 public class Printer {
     public static void main(String[] args) {
-        String file = "? + 4 = 9"; // тут пишем условие, чтение из файла решил не делать
+        String file = "?2 + ?? = 90"; // тут пишем условие, чтение из файла решил не делать
 
         Equation eq = new Equation();
         String result = eq.getSolution(file);
@@ -15,6 +15,9 @@ public class Printer {
             int[] a = getArr(f[0]);
             int[] b = getArr(f[2]);
             int[] c = getArr(f[4]);
+            String iStra = "%0" + f[0].length() + "d";
+            String iStrb = "%0" + f[2].length() + "d";
+            String iStrc = "%0" + f[4].length() + "d";
             int a1 = -1;
             int b1 = -1;
             int c1 = -1;
@@ -35,7 +38,7 @@ public class Printer {
 
             }
             System.out.println("Given the equation: " + str);
-            String res = eq ? "Result: " + a1 + " + " + b1 + " = " + c1: "No solution";
+            String res = eq ? "Result: " + String.format(iStra, a1) + " + " + String.format(iStrb, b1) + " = " + String.format(iStrc, c1): "No solution";
             return res;
         }
 
